@@ -250,3 +250,7 @@ Changelog
 * Updated greek translation
 * Translation for danish have been added (Thanks Kenneth D.)
 * Translation for french have been added (Thanks Aurélien C.)
+
+## 0.24.1-gkn
+* Hacked by grantnorwood, based on the original version 0.24 from [xeno010](http://www.it-gecko.de/) at [http://wordpress.org/plugins/wp-pro-quiz/]().
+* Improved matrix-sorting question type by allowing sort elements to be dragged into any criterion having the same text as the correct answer.  (For example, if there are 6 unique sort elements and only 2 unique criterion, then dragging a sort element into any criterion with the same correct name will validate as correct.)  

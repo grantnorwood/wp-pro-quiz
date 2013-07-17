@@ -268,6 +268,7 @@ class WpProQuiz_View_FrontQuiz extends WpProQuiz_View_View {
 					<ul class="wpProQuiz_questionList" data-question_id="<?php echo $question->getId(); ?>" data-type="<?php echo $question->getAnswerType(); ?>">
 					<?php
 						$answer_index = 0;
+                        $correct_answers = null;
 
 						foreach($answerArray as $v) {
 							$answer_text = $v->isHtml() ? $v->getAnswer() : esc_html($v->getAnswer()); 
@@ -281,11 +282,20 @@ class WpProQuiz_View_FrontQuiz extends WpProQuiz_View_View {
 								
 								$catPoints[$question->getCategoryId()] += $question->getPoints();
 							}
-							
+
+                            if ($question->getAnswerType() === 'matrix_sort_answer') {
+                                $correct_answers = array();
+                                foreach ($answerArray as $k2 => $v2) {
+                                    if ($v2->getAnswer() == $v->getAnswer()) {
+                                        $correct_answers[] = strval($k2);
+                                    }
+                                }
+                            }
+
 						?>
-							
-							<li class="wpProQuiz_questionListItem" data-pos="<?php echo $answer_index;?>">
-							
+
+                            <li class="wpProQuiz_questionListItem" data-pos="<?php echo $answer_index;?>"<?php echo is_array($correct_answers) && count($correct_answers) > 1 ? ' data-correct="' . implode(',', $correct_answers) . '"' : ''; ?>>
+
 						<?php if($question->getAnswerType() === 'single' || $question->getAnswerType() === 'multiple') { ?>
 							<?php $json[$question->getId()]['correct'][] = (int)$v->isCorrect(); ?>
 								<span <?php echo $this->quiz->isNumberedAnswer() ? '' : 'style="display:none;"'?>></span>
