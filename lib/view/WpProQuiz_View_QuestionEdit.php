@@ -220,6 +220,17 @@ class WpProQuiz_View_QuestionEdit extends WpProQuiz_View_View {
 						<p class="description">
 							<?php _e('You can create sort elements with empty criteria, which can\'t be assigned by user.', 'wp-pro-quiz'); ?>
 						</p>
+                        <br />
+                        <label for="matrix_sort_answer_criteria_width">Percentage width of criteria table column</label>
+                        <p class="description">
+                            Allows adjustment of the left column's width, and the right column will auto-fill the rest of the available space.  Increase this to allow
+                            accommodate longer criterion text.  Defaults to 20%.
+                        </p>
+                        <p>
+                            <?php $criteria_width = $this->question->getMatrixSortAnswerCriteriaWidth(); ?>
+                            <input name="matrixSortAnswerCriteriaWidth" class="number-text" value="<?php echo (int)$criteria_width > 0 ? (int)$criteria_width : 20; ?>" type="number" min="1" max="99" step="1">%
+                        </p>
+                        <br />
 						<ul class="answerList">
 							<?php $this->matrixSortingChoice($this->data['matrix_sort_answer']); ?>
 						</ul>

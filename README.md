@@ -254,3 +254,8 @@ Changelog
 ## 0.24.1-gkn
 * Hacked by grantnorwood, based on the original version 0.24 from [xeno010](http://www.it-gecko.de/) at [http://wordpress.org/plugins/wp-pro-quiz/]().
 * Improved matrix-sorting question type by allowing sort elements to be dragged into any criterion having the same text as the correct answer.  (For example, if there are 6 unique sort elements and only 2 unique criterion, then dragging a sort element into any criterion with the same correct name will validate as correct.)  
+
+## 0.24.2-gkn
+* Added ability to set the table column width for matrix sorting criteria in order to allow longer criteria text.  The option is displayed only when matrix sorting is selected as the answer type.
+* Added `matrix_sort_answer_criteria_width` database column
+* Bumped the db version to 20.

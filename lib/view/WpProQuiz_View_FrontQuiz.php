@@ -320,8 +320,11 @@ class WpProQuiz_View_FrontQuiz extends WpProQuiz_View_View {
 								<table>
 									<tbody>
 										<tr class="wpProQuiz_mextrixTr">
-											<td width="20%"><div class="wpProQuiz_maxtrixSortText" ><?php echo $answer_text; ?></div></td>
-											<td width="80%" >
+                                            <?php
+                                            $criteria_width = $question->getMatrixSortAnswerCriteriaWidth() > 0 ? (int)$question->getMatrixSortAnswerCriteriaWidth() : 20;
+                                            ?>
+											<td width="<?php echo $criteria_width; ?>%"><div class="wpProQuiz_maxtrixSortText" ><?php echo $answer_text; ?></div></td>
+											<td width="<?php echo 100 - $criteria_width; ?>%" >
 												<ul class="wpProQuiz_maxtrixSortCriterion"></ul>
 											</td>
 										</tr>

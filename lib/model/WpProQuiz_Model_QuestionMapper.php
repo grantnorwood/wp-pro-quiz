@@ -43,10 +43,11 @@ class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 						'show_points_in_box' => (int)$question->isShowPointsInBox(),
 						'answer_points_activated' => (int)$question->isAnswerPointsActivated(),
 						'answer_data' => $question->getAnswerData(true),
-						'category_id' => $question->getCategoryId()
+						'category_id' => $question->getCategoryId(),
+                        'matrix_sort_answer_criteria_width' => $question->getMatrixSortAnswerCriteriaWidth()
 					),
 					array('id' => $question->getId()),
-					array('%s', '%d', '%s', '%s', '%s', '%d', '%d', '%s', '%s', '%d', '%d', '%s', '%d'),
+					array('%s', '%d', '%s', '%s', '%s', '%d', '%d', '%s', '%s', '%d', '%d', '%s', '%d', '%d'),
 					array('%d'));
 		} else {
 			$this->_wpdb->insert($this->_table, array(
@@ -64,9 +65,10 @@ class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 					'show_points_in_box' => (int)$question->isShowPointsInBox(),
 					'answer_points_activated' => (int)$question->isAnswerPointsActivated(),
 					'answer_data' => $question->getAnswerData(true),
-					'category_id' => $question->getCategoryId()
+					'category_id' => $question->getCategoryId(),
+                    'matrix_sort_answer_criteria_width' => $question->getMatrixSortAnswerCriteriaWidth()
 				),
-				array('%d', '%d', '%s', '%d', '%s', '%s', '%s', '%d', '%d', '%s', '%s', '%d', '%d', '%s', '%d')
+				array('%d', '%d', '%s', '%d', '%s', '%s', '%s', '%d', '%d', '%s', '%s', '%d', '%d', '%s', '%d', '%d')
 			);
 			
 			$question->setId($this->_wpdb->insert_id);

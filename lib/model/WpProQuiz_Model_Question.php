@@ -24,6 +24,18 @@ class WpProQuiz_Model_Question extends WpProQuiz_Model_Model {
 	//0.24
 	protected $_categoryName = '';
 
+    //0.24.2-gkn
+
+    /**
+     * The percentage width of the criteria column within a matrix sorting answer type.
+     *
+     * @var string
+     */
+    protected $_matrixSortAnswerCriteriaWidth = 20;
+
+
+
+
 	public function setId($_id) {
 		$this->_id = $_id;
 		return $this;
@@ -194,4 +206,20 @@ class WpProQuiz_Model_Question extends WpProQuiz_Model_Model {
 	public function getCategoryName() {
 		return $this->_categoryName;
 	}
+
+    /**
+     * @param int $_matrixSortAnswerCriteriaWidth
+     * @return $this
+     */
+    public function setMatrixSortAnswerCriteriaWidth($_matrixSortAnswerCriteriaWidth) {
+        $this->_matrixSortAnswerCriteriaWidth = (int)$_matrixSortAnswerCriteriaWidth;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMatrixSortAnswerCriteriaWidth() {
+        return $this->_matrixSortAnswerCriteriaWidth;
+    }
 }

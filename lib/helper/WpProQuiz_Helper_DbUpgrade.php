@@ -1,7 +1,7 @@
 <?php
 class WpProQuiz_Helper_DbUpgrade {
 	
-	const WPPROQUIZ_DB_VERSION = 19;
+	const WPPROQUIZ_DB_VERSION = 20;
 	
 	private $_wpdb;
 	private $_prefix;
@@ -113,7 +113,8 @@ class WpProQuiz_Helper_DbUpgrade {
 			  `show_points_in_box` tinyint(1) NOT NULL,
 			  `answer_points_activated` tinyint(1) NOT NULL,
 			  `answer_data` longtext NOT NULL,
-			  `category_id` int(10) unsigned NOT NULL,
+			  `category_id` int(10) unsigned NOT NULL,,
+			  `matrix_sort_answer_criteria_width` int(10) unsigned NOT NULL,
 			  PRIMARY KEY (`id`),
 			  KEY `quiz_id` (`quiz_id`),
 			  KEY `category_id` (`category_id`)
@@ -852,4 +853,15 @@ class WpProQuiz_Helper_DbUpgrade {
 		
 		return 19;
 	}
+
+    private function upgradeDbV19() {
+
+        $this->_wpdb->query('
+			ALTER TABLE  `'.$this->_wpdb->prefix.'wp_pro_quiz_question`
+				ADD `matrix_sort_answer_criteria_width` int(10) unsigned NOT NULL
+		');
+
+        return 20;
+    }
+
 }

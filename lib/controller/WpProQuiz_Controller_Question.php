@@ -182,8 +182,10 @@ class WpProQuiz_Controller_Question extends WpProQuiz_Controller_Controller {
 			}
 			
 			$post['categoryId'] = $post['category'] > 0 ? $post['category'] : 0;
-	
-			$mapper->save(new WpProQuiz_Model_Question($post));
+
+            $post['matrixSortAnswerCriteriaWidth'] = intval($post['matrixSortAnswerCriteriaWidth']) > 0 ? intval($post['matrixSortAnswerCriteriaWidth']) : 20;
+
+            $mapper->save(new WpProQuiz_Model_Question($post));
 			WpProQuiz_View_View::admin_notices(__('Question edited', 'wp-pro-quiz'), 'info');
 		}
 		

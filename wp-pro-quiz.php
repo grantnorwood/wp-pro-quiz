@@ -3,14 +3,14 @@
 Plugin Name: WP-Pro-Quiz (grantnorwood)
 Plugin URI: https://github.com/grantnorwood/wp-pro-quiz
 Description: A modified version of WP-Pro-Quiz, "A powerful and beautiful quiz plugin for WordPress", by Julius Fischer (http://www.it-gecko.de)
-Version: 0.24.1-gkn
+Version: 0.24.2-gkn
 Author: Grant K Norwood
 Author URI: http://grantnorwood.com/
 Text Domain: wp-pro-quiz
 Domain Path: /languages
 */
 
-define('WPPROQUIZ_VERSION', '0.24.1-gkn');
+define('WPPROQUIZ_VERSION', '0.24.2-gkn');
 
 define('WPPROQUIZ_DEV', false);
 
