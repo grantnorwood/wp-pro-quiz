@@ -113,7 +113,7 @@ class WpProQuiz_Helper_DbUpgrade {
 			  `show_points_in_box` tinyint(1) NOT NULL,
 			  `answer_points_activated` tinyint(1) NOT NULL,
 			  `answer_data` longtext NOT NULL,
-			  `category_id` int(10) unsigned NOT NULL,,
+			  `category_id` int(10) unsigned NOT NULL,
 			  `matrix_sort_answer_criteria_width` int(10) unsigned NOT NULL,
 			  PRIMARY KEY (`id`),
 			  KEY `quiz_id` (`quiz_id`),
